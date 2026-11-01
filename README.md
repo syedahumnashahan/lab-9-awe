@@ -35,15 +35,15 @@ CSR fetches data in the browser using React's `useEffect()` and `useState()` hoo
 | SSG | At build time | Usually fastest page delivery |
 | CSR | In the browser | Initial content may take longer to appear |
 
-## Chrome DevTools Testing
-
-The Network tab was used to observe page loading times for all three methods.
-
-Actual test results:
-
-- SSR: [Enter measured time]
-- SSG: [Enter measured time]
-- CSR: [Enter measured time]
+## Chrome DevTools Network Tab – Loading Time Observation
+Chrome DevTools was used to observe the loading times of SSR, SSG, and CSR pages.
+1. Opened the project in Google Chrome.
+2. Pressed F12 to open Chrome DevTools.
+3. Selected the Network tab.
+4. Enabled Disable cache.
+5. Reloaded each page to observe its loading time.
+6. Recorded the loading times using the Finish value displayed at the bottom of the Network tab.
+Observation: SSG generally loads faster because its HTML is pre-generated. SSR requires server-side processing, while CSR fetches data in the browser after the page loads.
 
 ## Best Use Cases
 
