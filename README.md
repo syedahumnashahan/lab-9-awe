@@ -1,40 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# LAB 9 – Rendering Methods in Next.js
 
-## Getting Started
+## Project Overview
+This project demonstrates three rendering methods in Next.js:
 
-First, run the development server:
+1. Server-Side Rendering (SSR)
+2. Static Site Generation (SSG)
+3. Client-Side Rendering (CSR)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Official Joke API is used to fetch random jokes and display them on the pages.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- React.js
+- Next.js
+- JavaScript
+- Official Joke API
+- Chrome DevTools
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Project Pages
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### 1. SSR – Server-Side Rendering
+SSR fetches data on the server for every incoming page request using `getServerSideProps()`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### 2. SSG – Static Site Generation
+SSG generates the page at build time using `getStaticProps()`. The page uses `revalidate: 10` to allow regeneration after 10 seconds when a new request arrives.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. CSR – Client-Side Rendering
+CSR fetches data in the browser using React's `useEffect()` and `useState()` hooks. A loading message appears until the joke is received.
 
-## Learn More
+## Performance Comparison
 
-To learn more about Next.js, take a look at the following resources:
+| Method | Data Fetching | Performance |
+|---|---|---|
+| SSR | On every server request | Requires server processing for each request |
+| SSG | At build time | Usually fastest page delivery |
+| CSR | In the browser | Initial content may take longer to appear |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Chrome DevTools Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The Network tab was used to observe page loading times for all three methods.
 
-## Deploy on Vercel
+Actual test results:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- SSR: [Enter measured time]
+- SSG: [Enter measured time]
+- CSR: [Enter measured time]
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Best Use Cases
+
+- SSR: Dynamic websites, dashboards and pages requiring fresh data on every request.
+- SSG: Blogs, documentation, portfolios and websites with mostly static content.
+- CSR: Interactive applications, user dashboards and applications where data can load after the page appears.
+
+## Conclusion
+
+SSR, SSG and CSR provide different approaches to rendering web pages. SSR is suitable for frequently changing data, SSG is suitable for fast-loading static content, and CSR is suitable for highly interactive applications. The best method depends on the application's requirements.
